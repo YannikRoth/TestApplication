@@ -9,12 +9,18 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class ExampleDialog extends AppCompatDialogFragment {
 
+    private String valueToDisplay = "This is the body";
+
+    public void setValueToDisplay(String s){
+        this.valueToDisplay = s;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder
                 .setTitle("Just a test")
-                .setMessage("This is the body")
+                .setMessage(valueToDisplay)
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

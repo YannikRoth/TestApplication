@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,13 +20,15 @@ public class MainActivity extends AppCompatActivity {
         final Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showDialog();
+                EditText et = (EditText)findViewById(R.id.editText);
+                showDialog(et.getText().toString());
             }
         });
     }
 
-    public void showDialog(){
+    public void showDialog(String inputValue){
         ExampleDialog ed = new ExampleDialog();
+        ed.setValueToDisplay(inputValue);
         ed.show(getSupportFragmentManager(), "example");
     }
 }
